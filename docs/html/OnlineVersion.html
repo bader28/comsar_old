@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online version &#8212; COMSAR 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Online jupyter notebook version" href="OfflineVersion.html" />
+    <link rel="prev" title="Welcome to COMSAR’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="online-version">
+<h1>Online version<a class="headerlink" href="#online-version" title="Permalink to this headline">¶</a></h1>
+<p>The framework comes as an online and offline version.  Details of the project can be found here:</p>
+<p><a class="reference external" href="https://comsar.fbkultur.uni-hamburg.de/">https://comsar.fbkultur.uni-hamburg.de/</a></p>
+<p>The online version is located at</p>
+<p><a class="reference external" href="https://esra.fbkultur.uni-hamburg.de/">https://esra.fbkultur.uni-hamburg.de/</a></p>
+<p>Users need to register to the archive. Thereby they declare to use the recordings and analysis results purely for academic purpose:</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/ESRA_register.png"><img alt="ESRA register" src="_images/ESRA_register.png" style="width: 1554.5px; height: 548.5px;" /></a>
+</div>
+<p>Then the collections are displayed, sorted by single collections as well as by regions:</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/ESRA_collections.png"><img alt="ESRA collections" src="_images/ESRA_collections.png" style="width: 1264.5px; height: 484.5px;" /></a>
+</div>
+<p>Clicking on one collection, e.g., Collection Bader, a screen showing a trained Kohonen self-organizing map (SOM) is shown on the left, discussed below. On the right, the songs in the collection are shown with metadata:</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/ESRA_umatrix.png"><img alt="ESRA umatrix" src="_images/ESRA_umatrix.png" style="width: 1264.5px; height: 722.5px;" /></a>
+</div>
+<p>The menus on the top of the song list on the right enable to change between different collections (middle menu), extract subcollections by regions (left menu), or choose a selection (see below).</p>
+<p>When searching for an item in the collection with the search text field on the top right, all songs containing the search term in the metadata are displayed. Below is an example of the term ‘Kachin’ searched for in ‘Collection Bader’. The word Kachin does not appear in all song metadata displayed. This is because on this screen, only the most important metadata are shown:</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/ESRA_search.png"><img alt="ESRA search" src="_images/ESRA_search.png" style="width: 1252.5px; height: 720.5px;" /></a>
+</div>
+<p>In this example, when clicking on the top entry of the song list, the whole metadata are displayed:</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/ESRA_Metadata.png"><img alt="ESRA Metadata" src="_images/ESRA_Metadata.png" style="width: 1260.5px; height: 708.5px;" /></a>
+</div>
+<p>On the top left, the song can be played. If the song also contains a video, the video can be viewed. On the very right top, this song can be added to a selection a user decides to create (see below). In the middle-lower section ‘Feature Extraction’, the extracted featues of the song can be exported as a .csv file. This can be used in the COMSAR offline version or any other postprocessing software (for details, see Offline jupyter notebook version).</p>
+<p>In the top menu, in ‘My ESRA’, choosing ‘Upload Private Sound’, users can upload audio or video files. At the moment, ESRA only accepts audio files with a sample rate of 44.1 kHz (CD quality). After filling out the metadata fields, the song can be uploaded. COMSAR instantaneously starts analyzing the song. This might take a few minutes. The uploaded songs by a user are only visible and audible to this user. If one wishes to make songs publicly available for others, please contact us. Also, if you have a large collection of songs, it might be good to contact us too. We provide you with an excel file where you can insert all metadata of all songs at once.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/ESRA_UploadSong.png"><img alt="ESRA Upload Song" src="_images/ESRA_UploadSong.png" style="width: 1248.5px; height: 364.5px;" /></a>
+</div>
+<p>When songs are uploaded, they can be included in a new selection created by the user (and again only visible to this user):</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/ESRA_Selection.png"><img alt="ESRA Selection" src="_images/ESRA_Selection.png" style="width: 1270.5px; height: 232.5px;" /></a>
+</div>
+<p>In the metadata field shown above, one can add single songs to this collection, also adding songs from ESRA collections. This is interesting when comparing the results in the SOM. Again, if you have many songs to add to one collection, you can contact us.</p>
+</div>
+<div class="section" id="self-organizing-map-som-explained">
+<h1>Self-organizing map (SOM) explained<a class="headerlink" href="#self-organizing-map-som-explained" title="Permalink to this headline">¶</a></h1>
+<p>The Kohonen self-organizing map is like a brain that has learned the musical pieces of a collection. The SOM used in the online version is trained by all pieces in ESRA. You can train your own SOM in the offline version.</p>
+<p>Online, there are two trained SOMs, one for timbre and one for rhythm (for details about the features, see sections of this manual). Pitch extraction robustly only works for single-line melodies. As the collection at this stage has not enough single-line melodies in all collections extracting and learning tonal systems, melodies, or melisma is left to the offline version. Below, on the very left top menu ‘SOM Timbre Track u-Matrix’ is displayed:</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/ESRA_SongGroups.png"><img alt="ESRA SongGroups" src="_images/ESRA_SongGroups.png" style="width: 584.5px; height: 692.5px;" /></a>
+</div>
+<p>A trained SOM consists of neurons in a two-dimensional field. Each neuron is a vector of all features used for training, timbre, or rhythm features. Neigbhouring neurons might be more or less similar. This similarity is displayed in the u-matrix, where similar regions appear dark blue and blue, and more dissimilar regions appear green or yellow. Therefore we know that pieces in a dark blue region are very similar to one another, while pieces separated by a lighter ridge are more dissimilar.</p>
+<p>The trained SOM is then used to place musical pieces on it, where each piece is placed at the neuron, which is most similar to this piece. Therefore, the trained SOM can be used to analyze pieces the map was not trained by, so e.g., new uploaded pieces from users.</p>
+<p>The training set, here the ESRA pieces allow sorting pieces according to the musical content in this collection. Therefore the SOM is like a person knowing all these songs, but no others. For analysis of other musical styles or regions, the training of a new map might be considered. This can be performed in the offline version.</p>
+<p>Therefore, the similarity or dissimilarity of a piece is a combination of two factors: a) the distance on the map between the two pieces and b) the coloring between the two pieces.</p>
+<p>Exploring the map in terms of analyzing musical pieces in the online version is therefore done by exploring neighboring pieces. This can be done in several ways:</p>
+<p>In the figure above, the pieces have colors according to ethnic groups, which is displayed at the menu entry on the top right. At the bottom of the plot, a legend shows the association between ethnic groups and color. The pop-up menu shows additional metadata. Choosing one of them changes the legend and the coloring of the pieces, respectively.</p>
+<p>Another way of analyzing similarities is to display one or several metadata in the map. The top left menu allows several metadata to be used, also simultaneously. Be careful with this, the map might become too crowded:</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/ESRA_MetadataOnMap.png"><img alt="ESRA Metadata on map" src="_images/ESRA_MetadataOnMap.png" style="width: 602.5px; height: 695.5px;" /></a>
+</div>
+<p>Yet another way is to look at the metadata of single pieces on the map. Moving the cursor over the map to a piece, the metadata of this piece pops up. Additionally, a player is shown, which allows instantaneous playback of this special song. It is very interesting to listen to neighboring pieces in this way, to hear if the analyzed feature of this piece fits aural perception.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/ESRA_SOMPlay.png"><img alt="ESRA SOM play" src="_images/ESRA_SOMPlay.png" style="width: 581.5px; height: 694.5px;" /></a>
+</div>
+<p>A fourth way of analyzing is to understand why the pieces are located in the map the way they are. Below examples of timbre are shown, rhythm is accordingly.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/ESRA_SOMCentroidMeaqn.png"><img alt="ESRA SOM Centroid mean" src="_images/ESRA_SOMCentroidMeaqn.png" style="width: 590.5px; height: 679.5px;" /></a>
+</div>
+<p>In the figure above, the top left menu displays ‘SOM Timbre Track - Centroid Mean’. Then only the background image changes. In this case, it displays the strength of the spectral centroid, the perceived brightness of the songs. The lower end of the two-dimensional plot shows dark blue regions. This means the centroid is much higher than in the other regions. Therefore, pieces placed here are much brighter, always compared to all other pieces on the map.</p>
+<p>Another example below shows the standard deviation of roughness. This is achieved by changing the menu entry on the very left top. The pieces located on the right side have a much higher roughness standard deviation compared to the other pieces. This does not mean that they are rougher, it does mean that roughness over the course of the piece does change. The piece might be very rough at some point and very soft at another.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="_images/ESRA_SOMRoughnessstd.png"><img alt="ESRA SOM Roughness std" src="_images/ESRA_SOMRoughnessstd.png" style="width: 593.5px; height: 681.5px;" /></a>
+</div>
+<p>Combining all analysis tools allows for understanding similarities, dissimilarities, clustering, etc., of musical pieces in the collections and in songs uploaded by users. Basically, either one is looking for clustering in existing data, or one allows for exploring the pieces in terms of the analysis tools to start hearing similarities one might not be aware of before.</p>
+</div>
+<div class="section" id="collections">
+<h1>Collections<a class="headerlink" href="#collections" title="Permalink to this headline">¶</a></h1>
+<p>Collecting of ethnographic music recordings at the University of Hamburg can be traced back as far as the year 1910, when Africanist Carl Meinhof (1857-1944) founded the Phonetisches Laboratorium (Phonetics Laboratory), the first in the world dedicated to the experimental study of human speech, then attached to the Department of African Languages at the Hamburgisches Kolonialinstitut (Colonial Institute), one of the predecessors of the University of Hamburg. Benefiting from Hamburg’s role as central Europe’s main overseas port, the Phonetics Laboratory was able to acquire a considerable collection of speech and music recordings from Germany’s former African colonies as well as many other parts of the world, thus laying the foundations for what today amounts to almost a century of research in Comparative and Systematic Musicology in Hamburg. Wilhelm Heinitz (1883-1963), who had studied under Meinhof and phonetician Giulio Panconcelli-Calzia (1878-1966) at the Phonetics Institute to subsequently become the first professor of Comparative Musicology at the newly founded Musikwissenschaftliches Institut (Institute of Musicology) in 1949, transferred those assets of this collection that had survived the two World Wars to the Institute of Musicology.
+All of this collection’s assets, 654 shellac discs and acetate lathe-cuts containing some 2400 individual recordings, are to be considered extremely rare, a substantial number of them being, to the best of our knowledge, unique. This sui generis collection is currently being transferred into the digital domain, utilizing a proprietary transcription process developed in collaboration with technical experts from the Norddeutscher Rundfunk (NDR) public broadcaster. By virtue of the considerable musicological significance of this collection, its coherent and cohesive nature, and the extensive first-hand documentation available in writing, the digital instantiations of this collection, successively being imbedded into the ESRA online database, shall serve as an exemplary testing environment for the practical implementation of the MIR-based classification scheme proposed herein.</p>
+<p>Additionally, from the humble beginnings of the Institute of Musicology in 1949 until today, students, faculty members, and associated fellows of the Institute have increased and complemented the range and depth of the Institute’s archive by adding their own original field recordings to the collection. These comprise, for example, such rarities as forty-one tape reels of field recordings of Egyptian and Sudanese music, recorded in 1955 (cf. Hickmann and Mecklenbourg 1958) the only existing field recordings of the music of the Hadendoa people of Sudan (cf. Emsheimer and Schneider 1986, Stone [ed.] 1997: 557) the first post-Khmer-Rouge-era recordings of Cambodian Buddhist monk’s melismatic smot chanting (cf. Bader 2011), long thought to be extinct, and extensive first-hand material on the ritual music of the reclusive Moken sea nomads of the eastern Andaman Sea. Within a reasonable period of time, digital instantiations of these valuable recordings shall also be made available through the ESRA digital database by means of the MIR-based classification scheme proposed herein.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">COMSAR</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Online version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#self-organizing-map-som-explained">Self-organizing map (SOM) explained</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#collections">Collections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OfflineVersion.html">Online jupyter notebook version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_track.html">Pitch Track</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_track.html#melody-n-grams">Melody, n-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_track.html#tonal-system">Tonal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timbre_track.html">Timbre Track</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to COMSAR’s documentation!</a></li>
+      <li>Next: <a href="OfflineVersion.html" title="next chapter">Online jupyter notebook version</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Rolf Bader.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/OnlineVersion.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,21 @@
+=====================================
+Online jupyter notebook version
+=====================================
+
+The offline version of COMSAR is a python-based framework implemented in a jupyter notebook style. This allows for a much more flexible analysis. Still some programming skills are needed. Example notebooks are found in the menu.
+
+The offline versin needs several installations:
+
+1. python installation
+
+2. github installation
+
+2. jupyter installation
+
+3. apollon installation
+
+4. comsar installation
+
+5. chainaddiction installation
+
+ 
