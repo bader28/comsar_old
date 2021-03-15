@@ -2,7 +2,6 @@
 License: BSD-3-Clasuse
 Copyright (C) 2020, Michael Blaß, michael.blass@uni-hamburg.de
 """
-import datetime
 import pathlib
 import pickle
 from typing import ClassVar, Type, TypeVar, Union
@@ -13,30 +12,20 @@ import pandas as pd
 
 from apollon import io
 from apollon import container
-from apollon.signal import container as asc
+from apollon import signal
 from apollon.tools import standardize
 from apollon import types
 
 
 T = TypeVar('T')
 
-
-@dataclass
-class SourceMeta(container.Params):
-    """Source file meta data."""
-    _schema: ClassVar[types.Schema] = None
-    name: str
-    extension: str
-    hash_: str
-
-
 @dataclass
 class TrackMeta(container.Params):
     """Track meta data."""
     _schema: ClassVar[types.Schema] = None
     version: str
-    extraction_date: datetime.datetime
-    source: SourceMeta
+    time_stamp: str
+    source: str
 
 
 @dataclass
@@ -48,16 +37,36 @@ class TrackParams(container.Params):
 @dataclass
 class TimbreTrackParams(TrackParams):
     """Parameter set for TimbreTrack"""
-    stft: asc.StftParams
-    corr_dim: asc.CorrDimParams
+    stft: signal.container.StftParams
+    corr_dim: signal.container.CorrDimParams
+    corr_gram: signal.container.CorrGramParams
+
+@dataclass
+class PitchTrackParams(TrackParams):
+    """Parameter set for TimbreTrack"""
+    segmentation: signal.container.StftParams
 
 
 @dataclass
-class TimbreTrackCorrGramParams(TrackParams):
-    """Parameter set for TimbreTrack"""
-    stft: asc.StftParams
-    corr_dim: asc.CorrDimParams
+class TonalSystemParams(container.Params):
+    """Parameter set for Tonal System analysis"""
+    _schema: ClassVar[types.Schema] = io.json.load_schema('TonalSystem')
+    dcent: int = 1
+    dts: float = 0.1
+    minlen: int = 3
+    mindev: int = 60
+    noctaves: int = 8
+    f0: float = 27.5
 
+@dataclass
+class ngramParams(container.Params):
+    """Parameter set for n-gram analysis"""
+    _schema: ClassVar[types.Schema] = io.json.load_schema('ngram')
+    minnotelength: int = 10
+    ngram: int = 3
+    ngcentmin: int = 0
+    ngcentmax: int = 1200
+    nngram: int = 10
 
 class TrackResult:
     """Provide track results."""
@@ -101,16 +110,12 @@ class TrackResult:
         """Serialize TrackResults to dictionary."""
         return {'meta': self._meta.to_dict(),
                 'params': self._params.to_dict(),
-                'data': self._data.to_dict(orient='list')}
+                'data': self._data.to_dict()}
 
     def to_json(self, path: Union[str, pathlib.Path]) -> None:
         """Serialize TrackResults to JSON."""
         io.json.dump(self.to_dict(), path)
 
-
-    def to_mongo(self, db_con) -> None:
-        """Write TrackResults to open MongoDB connection:"""
-        pass
 
     def to_pickle(self, path: Union[str, pathlib.Path]) -> None:
         """Serialize Track Results to pickle."""
