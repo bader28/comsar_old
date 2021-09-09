@@ -24,7 +24,7 @@ from apollon.tools import time_stamp
 import apollon.signal as signal
 
 import comsar
-from comsar.tracks.utilities import TrackMeta, TrackParams, TrackResult, PitchTrackParams, TonalSystemParams, ngramParams
+from comsar._tracks.utilities import TrackMeta, TrackParams, TrackResult, PitchTrackParams, TonalSystemParams, ngramParams
 
 
 STFT_DEFAULT = container.StftParams(fps=44100, window='hamming', n_fft=None,
