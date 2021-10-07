@@ -18,7 +18,7 @@ from apollon.signal.spectral import StftSegments
 from apollon.tools import time_stamp
 
 import comsar
-from comsar.tracks.utilities import TrackMeta, TrackParams, TrackResult, TimbreTrackParams
+from comsar._tracks.utilities import TrackMeta, TrackParams, TrackResult, TimbreTrackParams
 
 
 STFT_DEFAULT = container.StftParams(fps=44100, window='hamming', n_fft=None,
@@ -56,15 +56,14 @@ class TimbreTrack:
 
         self.feature_names = ('Spectral Centroid', 'Spectral Spread',
                               'Spectral Flux', 'Roughness', 'Sharpness',
-                              'SPL', 'Correlation Dimension')
+                              'SPL')
 
         self.funcs = [features.spectral_centroid,
                       features.spectral_spread,
                       features.spectral_flux,
                       features.roughness_helmholtz,
                       features.sharpness,
-                      features.spl,
-                      features.cdim]
+                      features.spl]
 
         self.pace = np.zeros(self.n_features)
         self.verbose = False
