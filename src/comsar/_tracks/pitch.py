@@ -101,10 +101,11 @@ class PitchTrack:
 
         return TrackResult(meta, self.params, out)
 
-    def extract_TonalSystem(self, data: np.ndarray) -> np.ndarray:
+	def extract_TonalSystem(self, data: np.ndarray, dcent: int, dts: float, minlen: int, mindev: int, noctaves: int, f0: float) -> np.ndarray:
+    
         """Pitch cummulation and Tonal System Extraction
         
-        def extract_TonalSystem(self, data: np.ndarray, dcent: int, dts: float, minlen: int, mindev: int, noctaves: int, f0: float) -> np.ndarray:
+        def extract_TonalSystem(self, data: np.ndarray) -> np.ndarray:
         Input:
         data: Freuencies of adjacent segments of a sound file
         dcent: Accummulation precision in cent, examples: fine grain: dcent = 1, semitone grain. decent = 100
