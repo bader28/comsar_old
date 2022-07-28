@@ -101,7 +101,7 @@ class PitchTrack:
 
         return TrackResult(meta, self.params, out)
 
-    def extract_TonalSystem(self, data: np.ndarray, dcent: int, dts: float, minlen: int, mindev: int, noctaves: int, f0: float) -> np.ndarray:
+    def extract_TonalSystem(self, data: np.ndarray, dcent: float, dts: float, minlen: int, mindev: int, noctaves: int, f0: float) -> np.ndarray:
         """Pitch cummulation and Tonal System Extraction
         
         def extract_TonalSystem(self, data: np.ndarray) -> np.ndarray:
@@ -144,7 +144,7 @@ class PitchTrack:
                 if np.isnan(scales.iloc[i][j]):
                     scales.iloc[i][j] = 0
     
-        root=np.power(2,1/(1200/dcent))
+        root=np.power(2,1/(float(1200)/float(dcent)))
         root1200=1/np.log(root)
         n=int(1200/dcent*noctaves)
         no=int(float(1200)/float(dcent))
