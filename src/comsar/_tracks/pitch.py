@@ -145,7 +145,7 @@ class PitchTrack:
                 if np.isnan(scales.iloc[i][j]):
                     scales.iloc[i][j] = 0
     
-        root=np.power(2,1/1200/dcent))
+        root=np.power(2,1/(1200/dcent))
         root1200=1/np.log(root)
         n=int(1200/dcent*noctaves)
         no=int(float(1200)/float(dcent))
