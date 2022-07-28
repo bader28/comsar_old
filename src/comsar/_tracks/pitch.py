@@ -129,7 +129,7 @@ class PitchTrack:
         with note type ('note', 'pause', etc.), note start, note stop, note args, where arg1 is note in cent above f0
         cn: Accumulated tonal system spectrum within one octave with precision dcent from pitch events only,
         Compared to c0 (see above), which is accululated spectrum over all pitches in data
-        """
+        
         dcent = self.TSparams.dcent
         print(dcent)
         dts = self.TSparams.dts
@@ -137,6 +137,7 @@ class PitchTrack:
         mindev = self.TSparams.mindev
         noctaves = self.TSparams.noctaves
         f0 = self.TSparams.f0
+		"""
 
         scales = pd.read_csv('scales.csv', index_col=0)
         for i in range(0,len(scales)):
@@ -144,7 +145,7 @@ class PitchTrack:
                 if np.isnan(scales.iloc[i][j]):
                     scales.iloc[i][j] = 0
     
-        root=np.power(2,1/(float(1200)/float(dcent)))
+        root=np.power(2,1/1200/dcent))
         root1200=1/np.log(root)
         n=int(1200/dcent*noctaves)
         no=int(float(1200)/float(dcent))
