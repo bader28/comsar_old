@@ -1,6 +1,6 @@
 """comsar/tracks/pitch.py -- TimbreTack implementation
-License: BSD-3-Clasuse
-Copyright (C) 2020, Michael Bla�, michael.blass@uni-hamburg.de
+
+2022, Rolf Bader
 """
 from dataclasses import dataclass
 from timeit import default_timer as timer
