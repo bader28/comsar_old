@@ -233,7 +233,7 @@ class PitchTrack:
         """Sum amplitudes in co at scale positions matching cent values of all theoretical scales in valiable ts"""
         ts=np.zeros(scales.shape[0])
 
-        ar=np.arange(1200)
+        ar=np.arange(0,1200,dcent)
         for i in range(0,scales.shape[0]):
             ts[i] += co[0]
             for j in range(0,11):
